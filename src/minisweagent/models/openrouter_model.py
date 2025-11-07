@@ -50,7 +50,7 @@ class OpenRouterModel:
         self.config = OpenRouterModelConfig(**kwargs)
         self.cost = 0.0
         self.n_calls = 0
-        self._api_url = "https://openrouter.ai/api/v1/chat/completions"
+        self._api_url = "http://127.0.0.1:1125/v1/chat/completions"
         self._api_key = os.getenv("OPENROUTER_API_KEY", "")
 
     @retry(
@@ -66,12 +66,13 @@ class OpenRouterModel:
     )
     def _query(self, messages: list[dict[str, str]], **kwargs):
         headers = {
-            "Authorization": f"Bearer {self._api_key}",
+            # "Authorization": f"Bearer {self._api_key}",
             "Content-Type": "application/json",
         }
 
         payload = {
-            "model": self.config.model_name,
+            # "model": self.config.model_name,
+            "model": "qwen32b",
             "messages": messages,
             "usage": {"include": True},
             **(self.config.model_kwargs | kwargs),
@@ -99,7 +100,8 @@ class OpenRouterModel:
 
         # Extract cost from usage information
         usage = response.get("usage", {})
-        cost = usage.get("cost", 0.0)
+        # cost = usage.get("cost", 0.0)
+        cost = usage.get("cost", 0.001)
         assert cost >= 0.0, f"Cost is negative: {cost}"
 
         # If total_cost is not available, raise an error

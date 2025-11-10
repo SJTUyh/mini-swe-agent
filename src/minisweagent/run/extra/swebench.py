@@ -37,10 +37,10 @@ More information about the usage: [bold green]https://mini-swe-agent.com/latest/
 app = typer.Typer(rich_markup_mode="rich", add_completion=False)
 
 DATASET_MAPPING = {
-    "full": "princeton-nlp/SWE-Bench",
-    "verified": "princeton-nlp/SWE-Bench_Verified",
-    "lite": "princeton-nlp/SWE-Bench_Lite",
-    "multimodal": "princeton-nlp/SWE-Bench_Multimodal",
+    "full": "/home/y30044005/datasets/SWE-Bench",
+    "verified": "/home/y30044005/datasets/SWE-Bench_Verified",
+    "lite": "/home/y30044005/datasets/SWE-Bench_Lite",
+    "multimodal": "/home/y30044005/datasets/SWE-Bench_Multimodal",
     "multilingual": "swe-bench/SWE-Bench_Multilingual",
     "smith": "SWE-bench/SWE-smith",
     "_test": "klieret/swe-bench-dummy-test-dataset",

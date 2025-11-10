@@ -51,7 +51,7 @@ class OpenRouterModel:
         self.config = OpenRouterModelConfig(**kwargs)
         self.cost = 0.0
         self.n_calls = 0
-        self._api_url = "http://127.0.0.1:1125/v1/chat/completions"
+        self._api_url = "http://localhost:5111/v1/chat/completions"
         self._api_key = os.getenv("OPENROUTER_API_KEY", "")
 
     @retry(

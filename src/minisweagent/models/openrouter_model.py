@@ -1,4 +1,5 @@
 import json
+import time
 import logging
 import os
 from dataclasses import asdict, dataclass, field
@@ -77,7 +78,8 @@ class OpenRouterModel:
             "usage": {"include": True},
             **(self.config.model_kwargs | kwargs),
         }
-
+        print(f"{payload=}")
+        time.sleep(3)
         try:
             response = requests.post(self._api_url, headers=headers, data=json.dumps(payload), timeout=60)
             response.raise_for_status()

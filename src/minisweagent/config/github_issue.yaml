@@ -133,7 +133,7 @@ agent:
 
 environment:
   image: "python:3.11"
-  cwd: "/testbed"
+  cwd: "/home/y30044005/yh_dev/mini-swe-agent/testbed"
   env:
     PAGER: cat
     MANPAGER: cat

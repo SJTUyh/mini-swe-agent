@@ -213,7 +213,7 @@ agent:
   cost_limit: 3.
 
 environment:
-  cwd: "/testbed"
+  cwd: "/home/y30044005/yh_dev/mini-swe-agent/testbed"
   timeout: 60
   env:
     PAGER: cat

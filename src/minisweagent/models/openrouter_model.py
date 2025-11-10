@@ -73,14 +73,14 @@ class OpenRouterModel:
 
         payload = {
             # "model": self.config.model_name,
-            "model": "qwen32b",
+            "model": "/data/weight/QwenCode-2.5-7B",
             "messages": messages,
             "usage": {"include": True},
             **(self.config.model_kwargs | kwargs),
         }
-        with open("openrouter_request_tmp.json", "w") as f:
-            json.dump(payload, f, indent=2)
-        time.sleep(3)
+        # with open("openrouter_request_tmp.json", "w") as f:
+        #     json.dump(payload, f, indent=2)
+        # time.sleep(3)
         try:
             response = requests.post(self._api_url, headers=headers, data=json.dumps(payload), timeout=60)
             response.raise_for_status()

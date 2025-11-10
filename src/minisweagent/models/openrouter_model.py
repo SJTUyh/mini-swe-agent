@@ -73,7 +73,7 @@ class OpenRouterModel:
 
         payload = {
             # "model": self.config.model_name,
-            "model": "/data/weight/QwenCode-2.5-7B",
+            "model": "/data/weight/QwenCode-2.5-7B/",
             "messages": messages,
             "usage": {"include": True},
             **(self.config.model_kwargs | kwargs),

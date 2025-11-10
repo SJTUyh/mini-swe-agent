@@ -20,6 +20,9 @@ class LocalEnvironment:
     def execute(self, command: str, cwd: str = "", *, timeout: int | None = None):
         """Execute a command in the local environment and return the result as a dict."""
         cwd = cwd or self.config.cwd or os.getcwd()
+        print(f"{command=};{cwd=}")
+        import time
+        time.sleep(3)
         result = subprocess.run(
             command,
             shell=True,

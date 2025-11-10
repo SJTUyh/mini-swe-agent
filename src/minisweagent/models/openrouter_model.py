@@ -78,7 +78,8 @@ class OpenRouterModel:
             "usage": {"include": True},
             **(self.config.model_kwargs | kwargs),
         }
-        print(f"{payload=}")
+        with open("openrouter_request_tmp.json", "w") as f:
+            json.dump(payload, f, indent=2)
         time.sleep(3)
         try:
             response = requests.post(self._api_url, headers=headers, data=json.dumps(payload), timeout=60)

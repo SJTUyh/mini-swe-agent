@@ -211,7 +211,7 @@ def main(
     add_file_handler(output_path / "minisweagent.log")
 
     dataset_path = DATASET_MAPPING.get(subset, subset)
-    print(f"{DATASET_MAPPING=}")
+    logger.info(f"{DATASET_MAPPING=}")
     logger.info(f"Loading dataset {dataset_path}, split {split}...")
     instances = list(load_dataset(dataset_path, split=split))
 
